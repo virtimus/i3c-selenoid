@@ -1,0 +1,10 @@
+version: '3'
+services:
+  trigger:
+    environment:
+      PWD_SESSION_ID: ${SESSION_ID}
+      PWD_HOST_IP: ${PWD_HOST_IP}
+      PWD_HOST_FQDN: ${PWD_HOST_FQDN}
+    image: franela/dind
+    command: sh -c "curl -sSL https://raw.githubusercontent.com/virtimus/i3c-selenoid/master/PWD/boostrap.sh | bash >> /log/boostrap.log 2>&1 && tail -f /dev/null"
+    volumes: [ '/var/run/docker.sock:/var/run/docker.sock', '/var/log:/log' ]
