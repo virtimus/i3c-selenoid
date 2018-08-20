@@ -1,0 +1,4 @@
+FROM aerokube/selenoid:latest-release
+
+#curl -s https://aerokube.com/cm/bash | bash \
+#    && ./cm selenoid start --vnc --tmpfs 128
