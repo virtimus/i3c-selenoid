@@ -18,7 +18,7 @@ USER root
 RUN mkdir /composer && cd /composer && curl -sS https://getcomposer.org/installer | php
 
 # Add php user so we aren't running as root.
-RUN adduser --no-create-home -H php 
+RUN adduser --no-create-home php 
     
 USER php
 RUN cd /composer && php composer.phar require facebook/webdriver
