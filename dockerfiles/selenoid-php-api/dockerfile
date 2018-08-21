@@ -1,0 +1,19 @@
+#FROM  sasdas
+#from 
+FROM i3c/base/php-apache as d
+
+RUN apt-get update \
+    && apt-get install -y zlib1g-dev \
+    && apt-get install -y unzip \
+    && apt-get install -y libxml2-dev
+    
+RUN docker-php-ext-install zip \
+	&& docker-php-ext-install simplexml
+	
+#RUN cd /data && curl -sS https://getcomposer.org/installer | php	
+	
+USER php    
+#RUN cd /data && php composer.phar require facebook/webdriver
+USER root	
+
+
