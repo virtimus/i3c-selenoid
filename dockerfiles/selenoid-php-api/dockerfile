@@ -12,9 +12,12 @@ RUN docker-php-ext-install zip \
 	
 #RUN cd /data && curl -sS https://getcomposer.org/installer | php	
 	
-USER php    
+    
 #RUN cd /data && php composer.phar require facebook/webdriver
-USER root	
+USER root
+RUN mkdir /composer && cd /composer && curl -sS https://getcomposer.org/installer | php
+USER php
+RUN cd /composer && php composer.phar require facebook/webdriver
 
 COPY prepareComposer.sh /
 RUN chmod a+x /prepareComposer.sh
