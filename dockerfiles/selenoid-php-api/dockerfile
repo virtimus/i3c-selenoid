@@ -16,9 +16,13 @@ RUN docker-php-ext-install zip \
 #RUN cd /data && php composer.phar require facebook/webdriver
 USER root
 RUN mkdir /composer && cd /composer && curl -sS https://getcomposer.org/installer | php
+
+# Add php user so we aren't running as root.
+RUN adduser --no-create-home -H php 
+    
 USER php
 RUN cd /composer && php composer.phar require facebook/webdriver
-
+USER root
 COPY prepareComposer.sh /
 RUN chmod a+x /prepareComposer.sh
 
