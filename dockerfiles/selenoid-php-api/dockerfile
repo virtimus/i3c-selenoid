@@ -20,7 +20,8 @@ RUN mkdir /composer && cd /composer && curl -sS https://getcomposer.org/installe
 # Add php user so we aren't running as root.
 RUN adduser --no-create-home php 
 
-RUN chown -R php:php /composer
+RUN chown -R php:php /composer \
+	&& chown -R php:php /home/php/.composer
     
 USER php
 RUN cd /composer && php composer.phar require facebook/webdriver
