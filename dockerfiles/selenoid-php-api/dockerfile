@@ -21,8 +21,8 @@ RUN mkdir /composer && cd /composer && curl -sS https://getcomposer.org/installe
 # --no-create-home 
 RUN adduser --system --home /home/php php 
 
-RUN chown -R php:php /composer \
-	&& chown -R php:php /home/php
+RUN chown -R php /composer \
+	&& chown -R php /home/php
     
 USER php
 RUN cd /composer && php composer.phar require facebook/webdriver
