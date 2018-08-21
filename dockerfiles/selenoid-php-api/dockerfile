@@ -16,4 +16,7 @@ USER php
 #RUN cd /data && php composer.phar require facebook/webdriver
 USER root	
 
+COPY prepareComposer.sh /
+RUN chmod a+x /prepareComposer.sh
+
 
