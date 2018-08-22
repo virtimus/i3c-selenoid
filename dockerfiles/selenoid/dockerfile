@@ -2,3 +2,8 @@ FROM aerokube/selenoid:latest-release
 
 #curl -s https://aerokube.com/cm/bash | bash \
 #    && ./cm selenoid start --vnc --tmpfs 128
+
+RUN apk add bash php7 curl php-json php-zip php-mbstring unzip php7-simplexml php-phar php-openssl php-curl
+
+COPY installComposer.sh /
+RUN chmod a+x /installComposer.sh
