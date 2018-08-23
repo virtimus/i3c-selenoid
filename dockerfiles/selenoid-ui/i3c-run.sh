@@ -4,6 +4,7 @@
 
 dParams="-d \
 	--link selenoid \
+	-e VIRTUAL_PORT=8080 \
 	-p 8080:8080"
 	
 rCommand="--selenoid-uri=http://selenoid:4444"
